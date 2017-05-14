@@ -25,13 +25,13 @@ class OrderViewController: UIViewController {
     
     var isStreaming = false
     
-    @IBOutlet private var inputPlot: AKNodeOutputPlot!
-    @IBOutlet private weak var infoLabel: UILabel!
-    @IBOutlet private weak var resetButton: UIButton!
-    @IBOutlet private weak var mainButton: UIButton!
-    @IBOutlet weak var microphoneButton: UIButton!
-    @IBOutlet weak var textView: UITextView!
-    
+    @IBOutlet fileprivate var inputPlot: AKNodeOutputPlot!
+    @IBOutlet fileprivate weak var infoLabel: UILabel!
+    @IBOutlet var recordLongPress: UILongPressGestureRecognizer!
+    @IBOutlet fileprivate weak var recordButton: UIButton!
+//    @IBOutlet fileprivate weak var textView: UITextView!
+    @IBOutlet fileprivate weak var speechLabel: UILabel!
+
     enum RecordingState {
         case readyToRecord
         case recording
@@ -94,73 +94,78 @@ class OrderViewController: UIViewController {
     }
     
     fileprivate func setupUIForRecording() {
-        //TODO: FIX THIS
         recordingState = .readyToRecord
-        infoLabel.text = "Ready to record"
-        mainButton.setTitle("Record", for: .normal)
-        resetButton.isEnabled = false
-        resetButton.isHidden = true
+//        infoLabel.text = "Ready to record"
+        recordButton.setTitle("Record", for: .normal)
     }
     
     fileprivate func setupUIForPlaying() {
         //TODO: FIX THIS
         let recordedDuration = player != nil ? player.audioFile.duration  : 0
-        infoLabel.text = "Recorded: \(String(format: "%0.1f", recordedDuration)) seconds"
-        mainButton.setTitle("Play", for: .normal)
+//        infoLabel.text = "Recorded: \(String(format: "%0.1f", recordedDuration)) seconds"
+        recordButton.setTitle("Play", for: .normal)
         recordingState = .readyToPlay
-        resetButton.isHidden = false
-        resetButton.isEnabled = true
     }
     
     
     // MARK: Actions
 
-    @IBAction func mainButtonTouched(_ sender: UIButton) {
-        switch recordingState {
-        case .readyToRecord :
-            infoLabel.text = "Recording"
-            mainButton.setTitle("Stop", for: .normal)
-            recordingState = .recording
-
-            do {
-                try recorder.record()
-            } catch {
-                print("Errored recording.")
-            }
-            
-            microphoneButton.setTitle("Stop Microphone", for: .normal)
-            
-        case .recording :
-            // Microphone monitoring is muted
-            microphoneButton.setTitle("Start Microphone", for: .normal)
-            
-            do {
-                try player.reloadFile()
-            } catch { print("Errored reloading.") }
-            
-            let recordedDuration = player != nil ? player.audioFile.duration  : 0
-            if recordedDuration > 0.0 {
-                recorder.stop()
-                player.audioFile.exportAsynchronously(name: "TempTestFile.m4a",
-                                                      baseDir: .documents,
-                                                      exportFormat: .m4a) {_, exportError in
-                                                        if let error = exportError {
-                                                            print("Export Failed \(error)")
-                                                        } else {
-                                                            print("Export succeeded")
-                                                        }
+    @IBAction func recordButtonPressed(_ sender: Any) {
+        if self.recordLongPress.state == .began {
+            if self.recordingState == .readyToRecord {
+                // infoLabel.text = "Recording"
+                recordButton.setTitle("Stop", for: .normal)
+                recordingState = .recording
+                
+                do {
+                    try recorder.record()
+                } catch {
+                    print("Errored recording.")
                 }
-                setupUIForPlaying()
+                
+                recordButton.setTitle("Stop Microphone", for: .normal)
             }
-        case .readyToPlay :
-            player.play()
-            infoLabel.text = "Playing..."
-            mainButton.setTitle("Stop", for: .normal)
-            recordingState = .playing
-        case .playing :
-            player.stop()
+            self.beginLongPress()
+        } else if self.recordLongPress.state == .ended {
+            self.endLongPress()
+        } else if self.recordLongPress.state == .failed {
+            //handle error here basically do nothing
+            return
+        }
+    }
+    
+    fileprivate func beginLongPress() {
+        // Microphone monitoring is muted
+        recordButton.setTitle("Start Microphone", for: .normal)
+        
+        do {
+            try player.reloadFile()
+        } catch { print("Errored reloading.") }
+        
+        let recordedDuration = player != nil ? player.audioFile.duration  : 0
+        if recordedDuration > 0.0 {
+            recorder.stop()
+            player.audioFile.exportAsynchronously(name: "TempTestFile.m4a",
+                                                  baseDir: .documents,
+                                                  exportFormat: .m4a) {_, exportError in
+                                                    if let error = exportError {
+                                                        print("Export Failed \(error)")
+                                                    } else {
+                                                        print("Export succeeded")
+                                                    }
+            }
             setupUIForPlaying()
         }
+
+        player.play()
+        //            infoLabel.text = "Playing..."
+        recordButton.setTitle("Stop", for: .normal)
+        recordingState = .playing
+    }
+    
+    fileprivate func endLongPress() {
+        player.stop()
+        setupUIForPlaying()
     }
     
     fileprivate func startStreamingMicrophone() {
@@ -170,7 +175,7 @@ class OrderViewController: UIViewController {
         speechToTextSession.onError = { error in print(error) }
         speechToTextSession.onPowerData = { decibels in print(decibels) }
         speechToTextSession.onMicrophoneData = { data in print("received data") }
-        speechToTextSession.onResults = { results in self.textView.text = results.bestTranscript }
+        speechToTextSession.onResults = { results in self.speechLabel.text = results.bestTranscript }
         
         // define recognition settings
         var settings = RecognitionSettings(contentType: .opus)
@@ -190,5 +195,8 @@ class OrderViewController: UIViewController {
         speechToTextSession.disconnect()
     }
     
+    class func instanceFromNib() -> OrderViewController {
+        return UINib(nibName: "OrderViewController", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! OrderViewController
+    }
 }
 
