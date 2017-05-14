@@ -146,13 +146,16 @@ class OrderViewController: UIViewController, SFSpeechRecognizerDelegate {
             print("audioEngine couldn't start because of an error.")
         }
         
-        textView.text = "Say something, I'm listening!"
+        self.watsonLabel.text = "Say something, I'm listening!"
         
     }
     
-    // MARK: Actions
     
+    // MARK: Actions
+
     @IBAction func microphoneTapped(_ sender: AnyObject) {
+        self.microphoneButton.isSelected = sender.state != .ended
+
         if sender.state == .ended && audioEngine.isRunning {
             audioEngine.stop()
             recognitionRequest?.endAudio()
@@ -161,7 +164,6 @@ class OrderViewController: UIViewController, SFSpeechRecognizerDelegate {
             self.sendSpeechToWatson(self.textView.text)
         } else if sender.state == .began {
             startRecording()
-            self.watsonLabel.text = nil
             microphoneButton.setTitle("Stop Recording", for: .normal)
         }
     }
@@ -181,7 +183,8 @@ class OrderViewController: UIViewController, SFSpeechRecognizerDelegate {
     // MARK: IBM Watson Conversation
 
     fileprivate func setupWatson() {
-        self.watsonLabel.text = nil
+        self.watsonLabel.text = "Tap on the button to start"
+        self.textView.text = nil
         
         let username = Credentials.username
         let password = Credentials.password

@@ -23,8 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let window = self.window {
             window.backgroundColor = UIColor.white
             let orderVC = OrderViewController()
-            self.navController = UINavigationController(rootViewController: orderVC)
-            window.rootViewController = self.navController
+//            self.navController = UINavigationController(rootViewController: orderVC)
+            window.rootViewController = orderVC
             window.makeKeyAndVisible()
         }
         
