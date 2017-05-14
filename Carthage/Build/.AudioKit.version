@@ -1,0 +1,24 @@
+{
+  "iOS" : [
+    {
+      "hash" : "9a760386bae2a233c5472211d6501136b1172c6fd4066da8e4a77c35634dc334",
+      "name" : "AudioKit"
+    }
+  ],
+  "commitish" : "v3.6",
+  "watchOS" : [
+
+  ],
+  "tvOS" : [
+    {
+      "hash" : "93874ef4b1c6e6d65d0f67e05988aef9c749687559bf78d137cb5672619ecbbd",
+      "name" : "AudioKit"
+    }
+  ],
+  "Mac" : [
+    {
+      "hash" : "4b2d1873b175bb41f82a9e5fa3d1e0f7e8cd59cf536d345a1ec50f58fcce6c88",
+      "name" : "AudioKit"
+    }
+  ]
+}

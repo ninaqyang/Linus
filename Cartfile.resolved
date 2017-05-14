@@ -1,0 +1,3 @@
+github "Ramotion/expanding-collection" "1.0.4"
+github "audiokit/AudioKit" "v3.6"
+github "watson-developer-cloud/swift-sdk" "v0.16.0"
