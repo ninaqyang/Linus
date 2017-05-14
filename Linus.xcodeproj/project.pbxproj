@@ -144,6 +144,7 @@
 		272271FC1EC7CB6200953E96 /* TradeoffAnalyticsV1.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 272271CF1EC7CB6200953E96 /* TradeoffAnalyticsV1.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		272271FD1EC7CB6200953E96 /* VisualRecognitionV3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 272271D11EC7CB6200953E96 /* VisualRecognitionV3.framework */; };
 		272271FE1EC7CB6200953E96 /* VisualRecognitionV3.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 272271D11EC7CB6200953E96 /* VisualRecognitionV3.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		27FC5DA01EC815F90083AA1C /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FC5D9F1EC815F90083AA1C /* DateHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -364,6 +365,7 @@
 		272271D01EC7CB6200953E96 /* TradeoffAnalyticsV1.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = TradeoffAnalyticsV1.framework.dSYM; path = Carthage/Build/iOS/TradeoffAnalyticsV1.framework.dSYM; sourceTree = "<group>"; };
 		272271D11EC7CB6200953E96 /* VisualRecognitionV3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VisualRecognitionV3.framework; path = Carthage/Build/iOS/VisualRecognitionV3.framework; sourceTree = "<group>"; };
 		272271D21EC7CB6200953E96 /* VisualRecognitionV3.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = VisualRecognitionV3.framework.dSYM; path = Carthage/Build/iOS/VisualRecognitionV3.framework.dSYM; sourceTree = "<group>"; };
+		27FC5D9F1EC815F90083AA1C /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -444,6 +446,7 @@
 			children = (
 				2722700D1EC7B7C900953E96 /* AppDelegate.swift */,
 				2722700F1EC7B7C900953E96 /* OrderViewController.swift */,
+				27FC5D9F1EC815F90083AA1C /* DateHelper.swift */,
 				2722716F1EC7BD9000953E96 /* OrderViewController.xib */,
 				272271751EC7C65A00953E96 /* Credentials.swift */,
 				272270141EC7B7C900953E96 /* Assets.xcassets */,
@@ -782,6 +785,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				272271761EC7C65A00953E96 /* Credentials.swift in Sources */,
+				27FC5DA01EC815F90083AA1C /* DateHelper.swift in Sources */,
 				272270101EC7B7C900953E96 /* OrderViewController.swift in Sources */,
 				2722700E1EC7B7C900953E96 /* AppDelegate.swift in Sources */,
 			);
@@ -949,6 +953,7 @@
 				2722701E1EC7B7C900953E96 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

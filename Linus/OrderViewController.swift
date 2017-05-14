@@ -9,36 +9,47 @@
 import UIKit
 import ExpandingCollection
 import ConversationV1
-import AudioKit
-import SpeechToTextV1
 import Speech
+
+//struct Conversation {
+//    fileprivate let username: String = Credentials.username
+//    fileprivate let password: String = Credentials.password
+//    fileprivate let workspaceId: String = Credentials.workspaceId
+//    fileprivate let version = Date().getCurrentDate()
+//}
 
 class OrderViewController: UIViewController, SFSpeechRecognizerDelegate {
     
-    var speechToText: SpeechToText!
-    var speechToTextSession: SpeechToTextSession!
+    @IBOutlet fileprivate weak var textView: UITextView!
+    @IBOutlet fileprivate weak var microphoneButton: UIButton!
+    @IBOutlet fileprivate weak var watsonLabel: UILabel!
     
-    @IBOutlet weak var textView: UITextView!
-    @IBOutlet weak var microphoneButton: UIButton!
-    
-    private let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "en-US"))
+    fileprivate let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "en-US"))
 
-    private var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
-    private var recognitionTask: SFSpeechRecognitionTask?
-    private let audioEngine = AVAudioEngine()
+    fileprivate var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
+    fileprivate var recognitionTask: SFSpeechRecognitionTask?
+    fileprivate let audioEngine = AVAudioEngine()
     
+//    fileprivate let username: String = Credentials.username
+//    fileprivate let password: String = Credentials.password
+    fileprivate let workspaceId: String = Credentials.workspaceId
+
+    fileprivate var version: String {
+        get {
+            return Date().getCurrentDate()
+        }
+    }
+    
+    fileprivate var context: Context?
+
+    fileprivate var recordingDone: Bool = false
+    
+    fileprivate var conversation: Conversation?
+
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //IBM Bluemix setup
-        speechToText = SpeechToText(
-            username: Credentials.SpeechToTextUsername,
-            password: Credentials.SpeechToTextPassword
-        )
-        speechToTextSession = SpeechToTextSession(
-            username: Credentials.SpeechToTextUsername,
-            password: Credentials.SpeechToTextPassword
-        )
         
         microphoneButton.isEnabled = false  //2
         
@@ -69,6 +80,8 @@ class OrderViewController: UIViewController, SFSpeechRecognizerDelegate {
                 self.microphoneButton.isEnabled = isButtonEnabled
             }
         }
+        
+        self.setupWatson()
     }
     
     fileprivate func startRecording() {
@@ -140,13 +153,15 @@ class OrderViewController: UIViewController, SFSpeechRecognizerDelegate {
     // MARK: Actions
     
     @IBAction func microphoneTapped(_ sender: AnyObject) {
-        if audioEngine.isRunning {
+        if sender.state == .ended && audioEngine.isRunning {
             audioEngine.stop()
             recognitionRequest?.endAudio()
             microphoneButton.isEnabled = false
             microphoneButton.setTitle("Start Recording", for: .normal)
-        } else {
+            self.sendSpeechToWatson(self.textView.text)
+        } else if sender.state == .began {
             startRecording()
+            self.watsonLabel.text = nil
             microphoneButton.setTitle("Stop Recording", for: .normal)
         }
     }
@@ -162,6 +177,50 @@ class OrderViewController: UIViewController, SFSpeechRecognizerDelegate {
         }
     }
     
+    
+    // MARK: IBM Watson Conversation
+
+    fileprivate func setupWatson() {
+        self.watsonLabel.text = nil
+        
+        let username = Credentials.username
+        let password = Credentials.password
+        self.conversation = Conversation(username: username, password: password, version: version)
+        
+        guard let conversation = self.conversation else { return }
+        let failure = { (error: Error) in print(error) }
+        conversation.message(withWorkspace: self.workspaceId, failure: failure) { [weak self] response in
+            guard let strongSelf = self else { return }
+            print(response.output.text)
+            strongSelf.context = response.context
+        }
+    }
+    
+    fileprivate func sendSpeechToWatson(_ text: String) {
+        let failure = { (error: Error) in
+            print(error)
+            self.watsonLabel.text = "Sorry, I didn't quite get that."
+        }
+        let request = MessageRequest(text: text, context: context)
+        guard let conversation = self.conversation else { return }
+        conversation.message(withWorkspace: self.workspaceId, request: request, failure: failure) { [weak self] response in
+            guard let strongSelf = self else { return }
+            print(response.output.text)
+            strongSelf.context = response.context
+            
+            DispatchQueue.main.async {
+                strongSelf.handleWatsonResponse(response.output.text)
+            }
+        }
+    }
+    
+    fileprivate func handleWatsonResponse(_ text: [String]) {
+        if !text.isEmpty, let response = text.first {
+            self.watsonLabel.text = "\(response)"
+        } else {
+            self.watsonLabel.text = "Sorry, I didn't quite get that."
+        }
+    }
     
     class func instanceFromNib() -> OrderViewController {
         return UINib(nibName: "OrderViewController", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! OrderViewController
