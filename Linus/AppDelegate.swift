@@ -22,9 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         if let window = self.window {
             window.backgroundColor = UIColor.white
-            let orderVC = OrderViewController()
-//            self.navController = UINavigationController(rootViewController: orderVC)
-            window.rootViewController = orderVC
+//            let orderVC = OrderViewController()
+            let tablePickerVC = TablePickerViewController()
+            self.navController = UINavigationController(rootViewController: tablePickerVC)
+            window.rootViewController = self.navController
             window.makeKeyAndVisible()
         }
         

@@ -41,12 +41,19 @@ class OrderViewController: UIViewController, SFSpeechRecognizerDelegate {
     }
     
     fileprivate var context: Context?
-
     fileprivate var recordingDone: Bool = false
-    
     fileprivate var conversation: Conversation?
-
+    fileprivate var table: String?
     
+    init(withTable table: String) {
+        self.table = table
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -226,7 +233,7 @@ class OrderViewController: UIViewController, SFSpeechRecognizerDelegate {
     }
     
     class func instanceFromNib() -> OrderViewController {
-        return UINib(nibName: "OrderViewController", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! OrderViewController
+        return UINib(nibName: "OrderViewController", bundle: nil).instantiate(withOwner: nil, options: nil)[1] as! OrderViewController
     }
 }
 

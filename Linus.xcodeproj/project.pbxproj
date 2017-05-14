@@ -148,6 +148,7 @@
 		27FC5DA21EC837180083AA1C /* MyriadPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 27FC5DA11EC837120083AA1C /* MyriadPro-Regular.otf */; };
 		27FC5DA41EC837640083AA1C /* MyriadPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 27FC5DA31EC837640083AA1C /* MyriadPro-Semibold.otf */; };
 		27FC5DA61EC83D640083AA1C /* TablePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FC5DA51EC83D640083AA1C /* TablePickerViewController.swift */; };
+		27FC5DA81EC83DF00083AA1C /* TablePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27FC5DA71EC83DF00083AA1C /* TablePickerViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -372,6 +373,7 @@
 		27FC5DA11EC837120083AA1C /* MyriadPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Regular.otf"; sourceTree = "<group>"; };
 		27FC5DA31EC837640083AA1C /* MyriadPro-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Semibold.otf"; sourceTree = "<group>"; };
 		27FC5DA51EC83D640083AA1C /* TablePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TablePickerViewController.swift; sourceTree = "<group>"; };
+		27FC5DA71EC83DF00083AA1C /* TablePickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TablePickerViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -455,9 +457,10 @@
 				2722700D1EC7B7C900953E96 /* AppDelegate.swift */,
 				2722700F1EC7B7C900953E96 /* OrderViewController.swift */,
 				2722716F1EC7BD9000953E96 /* OrderViewController.xib */,
-				27FC5D9F1EC815F90083AA1C /* DateHelper.swift */,
 				27FC5DA51EC83D640083AA1C /* TablePickerViewController.swift */,
+				27FC5DA71EC83DF00083AA1C /* TablePickerViewController.xib */,
 				272271751EC7C65A00953E96 /* Credentials.swift */,
+				27FC5D9F1EC815F90083AA1C /* DateHelper.swift */,
 				272270141EC7B7C900953E96 /* Assets.xcassets */,
 				272270161EC7B7C900953E96 /* LaunchScreen.storyboard */,
 				272270191EC7B7C900953E96 /* Info.plist */,
@@ -717,6 +720,7 @@
 			files = (
 				272271221EC7BB9200953E96 /* 383CB0D8-3CDF-3928-B09B-E234B5DA8EB8.bcsymbolmap in Resources */,
 				272271451EC7BB9200953E96 /* D2ED3172-DD1B-3C1C-97C3-14DD497FF510.bcsymbolmap in Resources */,
+				27FC5DA81EC83DF00083AA1C /* TablePickerViewController.xib in Resources */,
 				27FC5DA41EC837640083AA1C /* MyriadPro-Semibold.otf in Resources */,
 				2722716C1EC7BB9200953E96 /* TradeoffAnalyticsV1.framework.dSYM in Resources */,
 				272271581EC7BB9200953E96 /* NaturalLanguageClassifierV1.framework.dSYM in Resources */,

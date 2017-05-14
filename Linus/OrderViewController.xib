@@ -55,7 +55,7 @@
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RXT-CT-ZgP">
-                    <rect key="frame" x="142" y="418" width="90" height="90"/>
+                    <rect key="frame" x="142" y="477" width="90" height="90"/>
                     <gestureRecognizers/>
                     <constraints>
                         <constraint firstAttribute="height" constant="90" id="qGe-a0-Kdv"/>
@@ -69,10 +69,9 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="RXT-CT-ZgP" secondAttribute="bottom" constant="159" id="4Db-Er-jd1"/>
+                <constraint firstAttribute="bottom" secondItem="RXT-CT-ZgP" secondAttribute="bottom" constant="100" id="4Db-Er-jd1"/>
                 <constraint firstItem="CU4-od-kct" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="110" id="A0m-7F-L1v"/>
                 <constraint firstItem="RXT-CT-ZgP" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="C5W-Ar-xLs"/>
-                <constraint firstItem="RXT-CT-ZgP" firstAttribute="top" secondItem="zA3-TD-9Pc" secondAttribute="bottom" constant="23" id="FmF-Fg-kXw"/>
                 <constraint firstAttribute="trailing" secondItem="ukf-dT-lB2" secondAttribute="trailing" id="MEs-eV-gck"/>
                 <constraint firstAttribute="bottom" secondItem="ukf-dT-lB2" secondAttribute="bottom" id="Nd8-3W-4Tl"/>
                 <constraint firstItem="ukf-dT-lB2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="TXH-Ds-NVk"/>
