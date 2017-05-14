@@ -1,3 +1,5 @@
 github "watson-developer-cloud/swift-sdk"
 github "audiokit/AudioKit"
 github "Ramotion/expanding-collection"
+github "Alamofire/Alamofire" ~> 4.4
+github "SwiftyJSON/SwiftyJSON"

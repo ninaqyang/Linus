@@ -149,6 +149,16 @@
 		27FC5DA41EC837640083AA1C /* MyriadPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 27FC5DA31EC837640083AA1C /* MyriadPro-Semibold.otf */; };
 		27FC5DA61EC83D640083AA1C /* TablePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FC5DA51EC83D640083AA1C /* TablePickerViewController.swift */; };
 		27FC5DA81EC83DF00083AA1C /* TablePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27FC5DA71EC83DF00083AA1C /* TablePickerViewController.xib */; };
+		27FC5DAB1EC84CDE0083AA1C /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27FC5DA91EC84CDE0083AA1C /* SwiftyJSON.framework */; };
+		27FC5DAC1EC84CDE0083AA1C /* SwiftyJSON.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = 27FC5DAA1EC84CDE0083AA1C /* SwiftyJSON.framework.dSYM */; };
+		27FC5DAF1EC84CF20083AA1C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27FC5DAD1EC84CF20083AA1C /* Alamofire.framework */; };
+		27FC5DB01EC84CF20083AA1C /* Alamofire.framework.dSYM in Resources */ = {isa = PBXBuildFile; fileRef = 27FC5DAE1EC84CF20083AA1C /* Alamofire.framework.dSYM */; };
+		27FC5DB21EC84D010083AA1C /* ServiceHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FC5DB11EC84D010083AA1C /* ServiceHelper.swift */; };
+		27FC5DB31EC84D8C0083AA1C /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27FC5DA91EC84CDE0083AA1C /* SwiftyJSON.framework */; };
+		27FC5DB41EC84D8C0083AA1C /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 27FC5DA91EC84CDE0083AA1C /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		27FC5DB51EC84D8C0083AA1C /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27FC5DAD1EC84CF20083AA1C /* Alamofire.framework */; };
+		27FC5DB61EC84D8C0083AA1C /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 27FC5DAD1EC84CF20083AA1C /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		27FC5DB81EC857BA0083AA1C /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27FC5DB71EC857BA0083AA1C /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -165,6 +175,7 @@
 				272271D81EC7CB6200953E96 /* AlchemyVisionV1.framework in Embed Frameworks */,
 				272271F21EC7CB6200953E96 /* RestKit.framework in Embed Frameworks */,
 				272271EE1EC7CB6200953E96 /* PersonalityInsightsV3.framework in Embed Frameworks */,
+				27FC5DB61EC84D8C0083AA1C /* Alamofire.framework in Embed Frameworks */,
 				272271F41EC7CB6200953E96 /* RetrieveAndRankV1.framework in Embed Frameworks */,
 				272271EC1EC7CB6200953E96 /* PersonalityInsightsV2.framework in Embed Frameworks */,
 				272271E41EC7CB6200953E96 /* ExpandingCollection.framework in Embed Frameworks */,
@@ -177,6 +188,7 @@
 				272271E21EC7CB6200953E96 /* DocumentConversionV1.framework in Embed Frameworks */,
 				272271E61EC7CB6200953E96 /* LanguageTranslatorV2.framework in Embed Frameworks */,
 				272271FA1EC7CB6200953E96 /* ToneAnalyzerV3.framework in Embed Frameworks */,
+				27FC5DB41EC84D8C0083AA1C /* SwiftyJSON.framework in Embed Frameworks */,
 				272271E01EC7CB6200953E96 /* DiscoveryV1.framework in Embed Frameworks */,
 				272271F61EC7CB6200953E96 /* SpeechToTextV1.framework in Embed Frameworks */,
 				272271FE1EC7CB6200953E96 /* VisualRecognitionV3.framework in Embed Frameworks */,
@@ -374,6 +386,12 @@
 		27FC5DA31EC837640083AA1C /* MyriadPro-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MyriadPro-Semibold.otf"; sourceTree = "<group>"; };
 		27FC5DA51EC83D640083AA1C /* TablePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TablePickerViewController.swift; sourceTree = "<group>"; };
 		27FC5DA71EC83DF00083AA1C /* TablePickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TablePickerViewController.xib; sourceTree = "<group>"; };
+		27FC5DA91EC84CDE0083AA1C /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = "<group>"; };
+		27FC5DAA1EC84CDE0083AA1C /* SwiftyJSON.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = SwiftyJSON.framework.dSYM; sourceTree = "<group>"; };
+		27FC5DAD1EC84CF20083AA1C /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
+		27FC5DAE1EC84CF20083AA1C /* Alamofire.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = Alamofire.framework.dSYM; sourceTree = "<group>"; };
+		27FC5DB11EC84D010083AA1C /* ServiceHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceHelper.swift; sourceTree = "<group>"; };
+		27FC5DB71EC857BA0083AA1C /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -382,6 +400,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2722713F1EC7BB9200953E96 /* AudioKit.framework in Frameworks */,
+				27FC5DAF1EC84CF20083AA1C /* Alamofire.framework in Frameworks */,
 				272271DD1EC7CB6200953E96 /* DialogV1.framework in Frameworks */,
 				272271EB1EC7CB6200953E96 /* PersonalityInsightsV2.framework in Frameworks */,
 				272271671EC7BB9200953E96 /* TextToSpeechV1.framework in Frameworks */,
@@ -410,6 +429,9 @@
 				272271F11EC7CB6200953E96 /* RestKit.framework in Frameworks */,
 				272271DF1EC7CB6200953E96 /* DiscoveryV1.framework in Frameworks */,
 				272271591EC7BB9200953E96 /* NaturalLanguageUnderstandingV1.framework in Frameworks */,
+				27FC5DAB1EC84CDE0083AA1C /* SwiftyJSON.framework in Frameworks */,
+				27FC5DB51EC84D8C0083AA1C /* Alamofire.framework in Frameworks */,
+				27FC5DB31EC84D8C0083AA1C /* SwiftyJSON.framework in Frameworks */,
 				2722715F1EC7BB9200953E96 /* RelationshipExtractionV1Beta.framework in Frameworks */,
 				2722714C1EC7BB9200953E96 /* DocumentConversionV1.framework in Frameworks */,
 				272271551EC7BB9200953E96 /* LanguageTranslatorV2.framework in Frameworks */,
@@ -459,6 +481,8 @@
 				2722716F1EC7BD9000953E96 /* OrderViewController.xib */,
 				27FC5DA51EC83D640083AA1C /* TablePickerViewController.swift */,
 				27FC5DA71EC83DF00083AA1C /* TablePickerViewController.xib */,
+				27FC5DB11EC84D010083AA1C /* ServiceHelper.swift */,
+				27FC5DB71EC857BA0083AA1C /* LocationManager.swift */,
 				272271751EC7C65A00953E96 /* Credentials.swift */,
 				27FC5D9F1EC815F90083AA1C /* DateHelper.swift */,
 				272270141EC7B7C900953E96 /* Assets.xcassets */,
@@ -471,6 +495,8 @@
 		272270C01EC7BB9200953E96 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
+				27FC5DA91EC84CDE0083AA1C /* SwiftyJSON.framework */,
+				27FC5DAA1EC84CDE0083AA1C /* SwiftyJSON.framework.dSYM */,
 				272270C11EC7BB9200953E96 /* 00C44663-74D9-3A8B-B96D-1FEE7096DB67.bcsymbolmap */,
 				272270C21EC7BB9200953E96 /* 012B584D-8677-317B-9E99-F9F5D0ACDD8F.bcsymbolmap */,
 				272270C31EC7BB9200953E96 /* 09B9085C-9523-3472-AB59-DF339E44A74F.bcsymbolmap */,
@@ -478,6 +504,8 @@
 				272270C51EC7BB9200953E96 /* 15F255D0-D6BB-3DCB-9FEE-1739154C9853.bcsymbolmap */,
 				272270C61EC7BB9200953E96 /* 25553A1B-8022-3298-8DF7-5A48111BEB18.bcsymbolmap */,
 				272270C71EC7BB9200953E96 /* 2A718DE1-EB6B-3285-A9C7-7758E8C53328.bcsymbolmap */,
+				27FC5DAD1EC84CF20083AA1C /* Alamofire.framework */,
+				27FC5DAE1EC84CF20083AA1C /* Alamofire.framework.dSYM */,
 				272270C81EC7BB9200953E96 /* 2B84C7AD-6BA1-33C2-BFCC-4EF01B339B9F.bcsymbolmap */,
 				272270C91EC7BB9200953E96 /* 35F5EB97-4431-3886-BFB6-A20791E96FF7.bcsymbolmap */,
 				272270CA1EC7BB9200953E96 /* 36435C0E-0B1A-342F-BD17-17A302999048.bcsymbolmap */,
@@ -766,11 +794,13 @@
 				272271541EC7BB9200953E96 /* FB96E40C-2E50-3530-BAF2-FCEF1AFF720C.bcsymbolmap in Resources */,
 				272271341EC7BB9200953E96 /* 935E53BA-AFB8-343E-B947-A5DFC9A9AF0F.bcsymbolmap in Resources */,
 				272271661EC7BB9200953E96 /* SpeechToTextV1.framework.dSYM in Resources */,
+				27FC5DAC1EC84CDE0083AA1C /* SwiftyJSON.framework.dSYM in Resources */,
 				2722711C1EC7BB9200953E96 /* 15F255D0-D6BB-3DCB-9FEE-1739154C9853.bcsymbolmap in Resources */,
 				2722714B1EC7BB9200953E96 /* DiscoveryV1.framework.dSYM in Resources */,
 				2722714D1EC7BB9200953E96 /* DocumentConversionV1.framework.dSYM in Resources */,
 				2722712C1EC7BB9200953E96 /* 7FD2401E-D100-3D3D-9029-D79BECD42614.bcsymbolmap in Resources */,
 				2722713A1EC7BB9200953E96 /* AlchemyDataNewsV1.framework.dSYM in Resources */,
+				27FC5DB01EC84CF20083AA1C /* Alamofire.framework.dSYM in Resources */,
 				27FC5DA21EC837180083AA1C /* MyriadPro-Regular.otf in Resources */,
 				272271311EC7BB9200953E96 /* 8DE66E71-4DD5-3CA3-89E3-29323617CC2D.bcsymbolmap in Resources */,
 				272271331EC7BB9200953E96 /* 91E45696-C05B-3068-A522-23CB1F37F7EC.bcsymbolmap in Resources */,
@@ -800,10 +830,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				272271761EC7C65A00953E96 /* Credentials.swift in Sources */,
+				27FC5DB81EC857BA0083AA1C /* LocationManager.swift in Sources */,
 				27FC5DA01EC815F90083AA1C /* DateHelper.swift in Sources */,
 				272270101EC7B7C900953E96 /* OrderViewController.swift in Sources */,
 				27FC5DA61EC83D640083AA1C /* TablePickerViewController.swift in Sources */,
 				2722700E1EC7B7C900953E96 /* AppDelegate.swift in Sources */,
+				27FC5DB21EC84D010083AA1C /* ServiceHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

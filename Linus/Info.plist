@@ -66,5 +66,9 @@
 	<string>NeedLibrary access for uploading Images</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
 	<string>Speech recognition will be used to determine which words you speak into this device&apos;s microphone.</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>This application requires location services to work</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>This application requires location services to work</string>
 </dict>
 </plist>

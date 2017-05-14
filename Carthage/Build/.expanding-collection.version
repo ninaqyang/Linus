@@ -2,7 +2,7 @@
   "commitish" : "1.0.4",
   "iOS" : [
     {
-      "hash" : "06e38ee1c5ad2a305ef77c28099b3c087539e8cff3aaea98bdea697702b330c5",
+      "hash" : "fcea37f5f648cda05c89ffc9a108b6a41400bd9f82ee399a64371c774b50f0eb",
       "name" : "ExpandingCollection"
     }
   ]

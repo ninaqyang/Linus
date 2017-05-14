@@ -24,6 +24,8 @@ class OrderViewController: UIViewController, SFSpeechRecognizerDelegate {
     @IBOutlet fileprivate weak var microphoneButton: UIButton!
     @IBOutlet fileprivate weak var watsonLabel: UILabel!
     
+    fileprivate var locationManager: LocationManager = LocationManager.sharedInstance
+
     fileprivate let speechRecognizer = SFSpeechRecognizer(locale: Locale.init(identifier: "en-US"))
 
     fileprivate var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
@@ -227,6 +229,9 @@ class OrderViewController: UIViewController, SFSpeechRecognizerDelegate {
     fileprivate func handleWatsonResponse(_ text: [String]) {
         if !text.isEmpty, let response = text.first {
             self.watsonLabel.text = "\(response)"
+            if response.contains("placed") {
+                ServiceHelper().sendLocationOfUser()
+            }
         } else {
             self.watsonLabel.text = "Sorry, I didn't quite get that."
         }
